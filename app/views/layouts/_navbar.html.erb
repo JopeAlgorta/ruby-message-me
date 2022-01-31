@@ -1,0 +1,25 @@
+<div class="ui inverted segment">
+  <div class="ui inverted secondary menu">
+    <div class="ui header item" style="padding: 0 1em">
+      <i class="comments orange icon"></i>
+      MessageMe
+    </div>
+    <%= link_to 'Home', root_path, class: 'item'%>
+    <%= link_to 'Chatroom', chatroom_path, class: 'item'%>
+    <a class="item">
+      Messages
+    </a>
+    <div class="right menu">
+      <div class="ui dropdown item">
+        Hi,&nbsp;<strong>jopealgorta</strong>! <i class="dropdown icon"></i>
+        <div class="menu">
+          <%= link_to 'Profile', login_path, class: 'item'%>
+          <a class="item">Logout</a>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui inverted green button">Sign Up</div>
+      </div>
+    </div>
+  </div>
+</div>
