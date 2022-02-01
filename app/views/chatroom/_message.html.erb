@@ -1,0 +1,14 @@
+<div class="comment">
+  <a class="avatar">
+    <%= image_tag("avatar/#{rand(4) + 1}.jpg") %>
+  </a>
+  <div class="content">
+    <a class="author"><%= message.user.username %></a>
+    <div class="metadata">
+      <span class="date"><%= time_ago_in_words(message.created_at) %> ago</span>
+    </div>
+    <div class="text">
+      <%= message.body %>
+    </div>
+  </div>
+</div>
