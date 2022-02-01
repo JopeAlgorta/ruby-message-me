@@ -1,13 +1,14 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  before_action :logged_in_redirect, only: %i[new create]
+
+  def new; end
 
   def create
     user = User.find_by username: params[:session][:username]
 
     if user&.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      flash[:success] = 'Glad to have you back!'
+      flash[:success]   = 'Glad to have you back!'
       redirect_to chatroom_path
     else
       flash.now[:error] = 'Invalid credentials'
@@ -17,7 +18,13 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash[:success] = 'See you soon!'
+    flash[:success]   = 'See you soon!'
     redirect_to root_path
+  end
+
+  private
+
+  def logged_in_redirect
+    redirect_to chatroom_path if logged_in?
   end
 end
