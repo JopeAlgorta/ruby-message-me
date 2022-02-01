@@ -6,17 +6,17 @@
   </div>
 </h2>
 <div class="ui column grid">
-  <div class="twelve wide column">
+  <div class="twelve wide column" >
     <div class="ui fluid card chatbox">
-      <div class="content">
-        <div class="ui comments">
+      <div class="content" id="msg-cont">
+        <div class="ui comments" id="messages">
           <% @messages.each do |m| %>
             <%= render 'message', message: m %>
           <% end %>
         </div>
       </div>
       <div class="extra content">
-        <%= form_with(model: @message, html: { class: 'ui reply form' }, local: true, url: message_path) do |f| %>
+        <%= form_with(model: @message, html: { class: 'ui reply form' }, remote: true, url: message_path) do |f| %>
           <div class="ui fluid action input">
             <%= f.text_field :body, placeholder: 'Hi!...', autofocus: true  %>
             <%= f.button '<i class="paper plane outline icon"></i> Send'.html_safe, class: 'ui orange button'%>
