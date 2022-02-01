@@ -34,4 +34,8 @@ $(document).on('turbolinks:load', function () {
         })
     ;
     scroll_bottom()
+    $('#message_form').on('ajax:success', (e) => {
+        $('#message_form')[0].reset()
+        $('#message_body').focus()
+    })
 })

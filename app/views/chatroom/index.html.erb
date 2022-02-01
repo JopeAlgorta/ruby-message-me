@@ -16,10 +16,10 @@
         </div>
       </div>
       <div class="extra content">
-        <%= form_with(model: @message, html: { class: 'ui reply form' }, remote: true, url: message_path) do |f| %>
+        <%= form_with(model: @message, html: { class: 'ui reply form', id: 'message_form' }, remote: true, url: message_path) do |f| %>
           <div class="ui fluid action input">
-            <%= f.text_field :body, placeholder: 'Hi!...', autofocus: true  %>
-            <%= f.button '<i class="paper plane outline icon"></i> Send'.html_safe, class: 'ui orange button'%>
+            <%= f.text_field :body, placeholder: 'Hi!...', autofocus: true %>
+            <%= f.button '<i class="paper plane outline icon"></i> Send'.html_safe, class: 'ui orange button', type: :submit %>
           </div>
         <% end %>
       </div>
