@@ -4,19 +4,26 @@
       <i class="comments orange icon"></i>
       MessageMe
     </div>
-    <%= link_to 'Home', root_path, class: 'item'%>
-    <%= link_to 'Chatroom', chatroom_path, class: 'item'%>
+    <%= link_to 'Home', root_path, class: 'item' %>
+    <%= link_to 'Chatroom', chatroom_path, class: 'item' %>
     <a class="item">
       Messages
     </a>
     <div class="right menu">
-      <div class="ui dropdown item">
-        Hi,&nbsp;<strong>jopealgorta</strong>! <i class="dropdown icon"></i>
-        <div class="menu">
-          <%= link_to 'Profile', login_path, class: 'item'%>
-          <a class="item">Logout</a>
+      <% if logged_in? %>
+        <div class="ui dropdown item">
+          Hi,&nbsp;<strong><%= current_user.username %></strong>! <i class="dropdown icon"></i>
+
+          <div class="menu">
+            <%= link_to 'Profile', login_path, class: 'item' %>
+            <%= link_to 'Logout', logout_path, method: :delete, class: 'item' %>
+          </div>
         </div>
-      </div>
+      <% else %>
+        <div class="item">
+          <%= link_to 'Login', login_path, class: 'ui inverted orange button' %>
+        </div>
+      <% end %>
       <div class="item">
         <div class="ui inverted green button">Sign Up</div>
       </div>
